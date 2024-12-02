@@ -4,7 +4,8 @@
   "description": "A website that gives users access to all kinds of stock and cryptocurrency data.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node dist/server.js",
+    "dev": "--exec ts-node src/server.ts"
   },
   "keywords": [],
   "author": "",
