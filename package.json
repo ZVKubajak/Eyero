@@ -1,0 +1,17 @@
+{
+  "name": "stocks-app",
+  "version": "1.0.0",
+  "description": "A website that gives users access to all kinds of stock and cryptocurrency data.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node dist/server.js",
+    "dev": "--exec ts-node src/server.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^9.1.0",
+    "wait-on": "^8.0.1"
+  }
+}
