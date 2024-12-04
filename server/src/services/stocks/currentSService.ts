@@ -12,17 +12,20 @@ export const getCurrentStockData = async (ticker: string) => {
 
     const apiData = response.data;
 
-    const stockResults = apiData.results.map((result: any) => ({
-      currentPrice: result.c,
-      priceChange: result.d,
-      percentChange: result.dp,
-      highPrice: result.h,
-      lowPrice: result.l,
-      openPrice: result.o,
-      previousClosePrice: result.pc,
-    }));
+    const timestamp = apiData.t;
+    const formattedDate = new Date(timestamp * 1000).toISOString();
 
-    console.log(stockResults);
+    const stockResults = {
+      currentPrice: apiData.c,
+      priceChange: apiData.d,
+      percentChange: apiData.dp,
+      highPrice: apiData.h,
+      lowPrice: apiData.l,
+      openPrice: apiData.o,
+      previousClosedPrice: apiData.pc,
+      time: formattedDate,
+    };
+
     return stockResults;
   } catch (error) {
     console.error(`Error fetching data for ${ticker}:`, error);
