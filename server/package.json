@@ -1,7 +1,7 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "main": "dist/server.js",
+  "main": "index.js",
   "scripts": {
     "dev": "nodemon --exec ts-node src/server.ts"
   },
@@ -18,9 +18,11 @@
     "pg": "^8.13.1"
   },
   "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
     "@types/node": "^22.10.1",
+    "bcrypt": "^5.1.1",
     "nodemon": "^3.1.7",
     "prisma": "^6.0.1",
     "ts-node": "^10.9.2",
