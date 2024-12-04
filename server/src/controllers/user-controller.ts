@@ -10,7 +10,8 @@ const validateEmail = (email: string): boolean => {
 };
 
 const validatePassword = (password: string): boolean => {
-  const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,20}$/;
+  const passwordRegex =
+    /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,20}$/;
   return passwordRegex.test(password);
 };
 
@@ -56,20 +57,22 @@ export const getUserById = async (req: Request, res: Response) => {
   }
 };
 
-export const createUser = async (req: Request, res: Response) => {
+export const createUser = async (req: any, res: any) => {
   try {
     const { email, password } = req.body;
 
     if (!validateEmail(email)) {
       return res
         .status(400)
-        .json({ message: 'Invalid email format. Please provide a valid email.' });
+        .json({
+          message: "Invalid email format. Please provide a valid email.",
+        });
     }
 
     if (!validatePassword(password)) {
       return res.status(400).json({
         message:
-          'Password must be 8-20 characters long, include at least one uppercase letter, one number, and one special character.',
+          "Password must be 8-20 characters long, include at least one uppercase letter, one number, and one special character.",
       });
     }
 
@@ -92,7 +95,7 @@ export const createUser = async (req: Request, res: Response) => {
   }
 };
 
-export const updateUser = async (req: Request, res: Response) => {
+export const updateUser = async (req: any, res: any) => {
   try {
     const { id } = req.params;
     const { email, password, savedStocks, savedCrypto } = req.body;
@@ -103,7 +106,7 @@ export const updateUser = async (req: Request, res: Response) => {
     });
 
     if (!user) {
-      return res.status(404).json({ message: 'User not found' });
+      return res.status(404).json({ message: "User not found" });
     }
 
     const updateData: any = {};
@@ -113,7 +116,9 @@ export const updateUser = async (req: Request, res: Response) => {
       if (!validateEmail(email)) {
         return res
           .status(400)
-          .json({ message: 'Invalid email format. Please provide a valid email.' });
+          .json({
+            message: "Invalid email format. Please provide a valid email.",
+          });
       }
       updateData.email = email;
     }
@@ -123,7 +128,7 @@ export const updateUser = async (req: Request, res: Response) => {
       if (!validatePassword(password)) {
         return res.status(400).json({
           message:
-            'Password must be 8-20 characters long, include at least one uppercase letter, one number, and one special character.',
+            "Password must be 8-20 characters long, include at least one uppercase letter, one number, and one special character.",
         });
       }
       const saltRounds = 10;
