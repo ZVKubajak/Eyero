@@ -1,5 +1,5 @@
 import { Router } from "express";
-import stockRoutes from "./api/index.js";
+import { stockRoutes } from "./api/stockRoutes.js"
 import userRouter from "./user-routes/index.js";
 
 const router = Router();
