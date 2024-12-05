@@ -5,4 +5,4 @@ const router = Router();
 
 router.get("/current/:ticker", fetchCurrentStockData);
 
-export { router as stockRoutes }
+export { router as stockRoutes };

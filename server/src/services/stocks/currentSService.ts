@@ -2,8 +2,6 @@ import axios from "axios";
 import { finnhubConfig } from "../../config/config";
 
 export const getCurrentStockData = async (ticker: string) => {
-  console.log(finnhubConfig);
-
   try {
     const response = await axios.get(`${finnhubConfig.baseUrl}/quote`, {
       params: {
