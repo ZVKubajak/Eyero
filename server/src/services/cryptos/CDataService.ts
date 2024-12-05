@@ -59,14 +59,14 @@ export const getCryptoData = async (id: string) => {
       priceChange24H: m.price_change_24h,
       priceChangePercentageData: priceChangePercentages,
       marketCapChange24H: m.market_cap_change_24h,
-      marketCapPercentageChange: m.market_cap_change_percentage_24h,
+      marketCapPercentageChange24H: m.market_cap_change_percentage_24h,
       totalSupply: m.total_supply,
       maxSupply: m.max_supply,
       isSupplyInfinite: m.max_supply_infinite,
       lastUpdated: m.last_updated,
     };
 
-    return response.data;
+    return cryptoData;
   } catch (error) {
     console.error(`Error fetching data for ${id}:`, error);
     throw error;
