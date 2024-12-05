@@ -58,6 +58,12 @@ export const getCryptoData = async (id: string) => {
       low24H: m.low_24h,
       priceChange24H: m.price_change_24h,
       priceChangePercentageData: priceChangePercentages,
+      marketCapChange24H: m.market_cap_change_24h,
+      marketCapPercentageChange: m.market_cap_change_percentage_24h,
+      totalSupply: m.total_supply,
+      maxSupply: m.max_supply,
+      isSupplyInfinite: m.max_supply_infinite,
+      lastUpdated: m.last_updated,
     };
 
     return response.data;
