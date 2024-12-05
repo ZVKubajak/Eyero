@@ -3,6 +3,6 @@ import { fetchCurrentCryptoPrice } from "../../controllers/api-controllers/crypt
 
 const router = Router();
 
-router.get("/current-price/:id", fetchCurrentCryptoPrice);
+router.get("/price/:id", fetchCurrentCryptoPrice);
 
 export { router as cryptoRoutes };

@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { getCurrentCryptoPrice } from "../../services/cryptos/currentCService";
+import { getCurrentCryptoPrice } from "../../services/cryptos/CPriceService";
 
 export const fetchCurrentCryptoPrice = async (
   req: Request,
