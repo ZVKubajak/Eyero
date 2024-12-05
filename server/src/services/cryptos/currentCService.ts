@@ -10,8 +10,7 @@ export const getCurrentCryptoPrice = async (id: string) => {
       },
     });
 
-    console.log(response);
-    return response;
+    return response.data;
   } catch (error) {
     console.error(`Error fetching data for ${id}:`, error);
     throw error;
