@@ -9,3 +9,9 @@ export const finnhubConfig = {
 
 // CoinGecko is a public API, so it does not need an API key.
 export const coingeckoBaseURL = "https://api.coingecko.com/api/v3";
+
+// News Api Config
+export const newsapiConfig = {
+  newsapiApiKey: process.env.NEWS_API_KEY || "",
+  baseUrl: "https://newsapi.org/v2"
+}
