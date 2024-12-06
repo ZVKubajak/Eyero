@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { getCurrentCryptoPrice } from "../../services/cryptos/CPriceService";
+import { getCurrentCryptoPrice } from "../../services/cryptos/CCurrentService";
 import { getHistoricalCryptoPrice } from "../../services/cryptos/CHistoricalService";
 import { getCryptoData } from "../../services/cryptos/CDataService";
 
