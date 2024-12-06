@@ -2,9 +2,11 @@
 
 import { useEffect, useState } from "react";
 import { fetchNews } from "@/services/newsServices";
+import { InewsItem } from "@/interfaces";
+
 export default function Home() {
 
-  const [news, setNews] = useState<any[]>([]);
+  const [news, setNews] = useState<InewsItem[]>([]);
 
   useEffect(() => {
     async function getNews() {
@@ -19,8 +21,9 @@ export default function Home() {
     <div>
       {news ? (
         <div>
-          {news.map((newsItem: any, index: number) => (
+          {news.map((newsItem: InewsItem, index: number) => (
             <div key={index}>
+              <h3>{newsItem.name}</h3>
               <h2>{newsItem.title}</h2>
               <p>{newsItem.description}</p>
               <a href={newsItem.url} target="_blank" rel="noopener noreferrer">
