@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "start": "npm run build && node dist/server.js",
-    "dev": "npx nodemon",
+    "start": "npm run build && node dist/server.js --ignore client",
+    "watch": "nodemon dist/server.js",
     "build": "tsc"
   },
   "keywords": [],
