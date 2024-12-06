@@ -11,7 +11,6 @@ export const getCurrentStockData = async (ticker: string) => {
       },
     });
 
-    console.log(response.data);
     return response.data;
   } catch (error) {
     console.error(`Error fetching data for ${ticker}:`, error);
