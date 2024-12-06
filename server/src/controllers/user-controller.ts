@@ -62,11 +62,9 @@ export const createUser = async (req: any, res: any) => {
     const { email, password } = req.body;
 
     if (!validateEmail(email)) {
-      return res
-        .status(400)
-        .json({
-          message: "Invalid email format. Please provide a valid email.",
-        });
+      return res.status(400).json({
+        message: "Invalid email format. Please provide a valid email.",
+      });
     }
 
     if (!validatePassword(password)) {
@@ -114,11 +112,9 @@ export const updateUser = async (req: any, res: any) => {
     // Validate and update email if provided
     if (email) {
       if (!validateEmail(email)) {
-        return res
-          .status(400)
-          .json({
-            message: "Invalid email format. Please provide a valid email.",
-          });
+        return res.status(400).json({
+          message: "Invalid email format. Please provide a valid email.",
+        });
       }
       updateData.email = email;
     }
