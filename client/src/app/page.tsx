@@ -19,7 +19,7 @@ export default function Home() {
 
   return (
     <div>
-      {news ? (
+      {/* {news ? (
         <div>
           {news.map((newsItem: InewsItem, index: number) => (
             <div key={index}>
@@ -41,7 +41,8 @@ export default function Home() {
         </div>
       ) : (
         <p>Loading...</p>
-      )}
+      )} */}
+      
     </div>
   );
 }
