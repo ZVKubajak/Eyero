@@ -5,4 +5,4 @@ const router = Router();
 
 router.get("/:query", fetchNewsData);
 
-export { router as newsRoutes }
+export { router as newsRoutes };
