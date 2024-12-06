@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { getCurrentStockData } from "../../services/stocks/currentSService";
+import { getCurrentStockData } from "../../services/stocks/SCurrentService";
 import { getHistoricalStockData } from "../../services/stocks/SHistoricalService";
 
 export const fetchCurrentStockData = async (
