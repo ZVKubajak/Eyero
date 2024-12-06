@@ -7,6 +7,7 @@ export const getHistoricalStockData = async (ticker: string) => {
       params: {
         function: "TIME_SERIES_DAILY",
         symbol: ticker,
+        outputsize: "full",
         apikey: alphaVConfig.alphaVApiKey,
       },
     });
