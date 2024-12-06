@@ -14,7 +14,13 @@ export const getHistoricalCryptoPrice = async (id: string) => {
       }
     );
 
-    return response.data;
+    const cryptoData = {
+      prices: response.data.prices,
+      marketCaps: response.data.market_caps,
+      totalVolumes: response.data.total_volumes,
+    };
+
+    return cryptoData;
   } catch (error) {
     console.error(`Error fetching data for ${id}:`, error);
     throw error;
