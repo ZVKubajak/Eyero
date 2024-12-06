@@ -14,14 +14,14 @@ export const getCryptoData = async (id: string) => {
 
     const m = c.market_data;
     const allTimeHigh = {
-      price: m.ath,
-      percentage: m.ath_change_percentage,
-      date: m.ath_date,
+      price: m.ath.usd,
+      percentage: m.ath_change_percentage.usd,
+      date: m.ath_date.usd,
     };
     const allTimeLow = {
-      price: m.atl,
-      percentage: m.atl_change_percentage,
-      date: m.atl_date,
+      price: m.atl.usd,
+      percentage: m.atl_change_percentage.usd,
+      date: m.atl_date.usd,
     };
     const priceChangePercentages = {
       day: m.price_change_percentage_24h,
@@ -49,13 +49,13 @@ export const getCryptoData = async (id: string) => {
       popularityRank: c.market_cap_rank,
 
       // Market Data //
-      currentPrice: m.current_price,
+      currentPrice: m.current_price.usd,
       allTimeHighData: allTimeHigh,
       allTimeLowData: allTimeLow,
-      marketCap: m.market_cap,
-      totalVolume: m.total_volume,
-      high24H: m.high_24h,
-      low24H: m.low_24h,
+      marketCap: m.market_cap.usd,
+      totalVolume: m.total_volume.usd,
+      high24H: m.high_24h.usd,
+      low24H: m.low_24h.usd,
       priceChange24H: m.price_change_24h,
       priceChangePercentageData: priceChangePercentages,
       marketCapChange24H: m.market_cap_change_24h,
