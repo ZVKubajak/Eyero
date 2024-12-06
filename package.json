@@ -5,6 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "node dist/server.js",
+    "start:dev": "npm run build && npm run develop",
+    "develop": "concurrently \"cd server && npm run watch\" \"wait-on tcp:3001 && cd client && npm run dev\"",
+    "build": "concurrently \"cd server && npm run build\" \"cd client && npm run build\"",
+    "install": "cd server && npm i && cd ../client && npm i",
     "dev": "--exec ts-node src/server.ts"
   },
   "keywords": [],
@@ -17,7 +21,9 @@
   },
   "dependencies": {
     "@types/express": "^5.0.0",
+    "concurrently": "^8.2.0",
     "cors": "^2.8.5",
     "express": "^4.21.1"
   }
 }
+
