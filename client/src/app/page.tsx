@@ -21,7 +21,7 @@ export default function Home() {
   return (
     <div>
       {news ? (
-        <div>
+        <div className="flex flex-row flex-wrap">
           {news.map((newsItem: InewsItem, index: number) => (
             <NewsCard
             key={index}

@@ -1,0 +1,37 @@
+.newscard-div {
+
+    background-color: #141420;
+    width: 400px;
+    height: 350px;
+    border-radius: 20px;
+    margin: 20px 30px;
+}
+
+.news-image {
+
+    height: 200px;
+    width: 400px;
+    object-fit: cover;
+    border-radius: 20px 20px 0 0;
+}
+
+.info-container {
+
+    padding: 10px;
+}
+
+.newscard-title {
+
+    color: #fff;
+    font-size: 17px;
+    margin-top: 10px;
+}
+
+.minor-detail-info {
+
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 40px;
+}
