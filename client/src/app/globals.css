@@ -4,6 +4,7 @@
 
 body {
     background-color: #060610;
+    color: white;
 }
 
 @layer base {

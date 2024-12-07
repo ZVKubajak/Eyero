@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { fetchNews } from "@/services/newsServices";
 import { InewsItem } from "@/interfaces";
+import Header from "./ui/Header/header";
 import NewsCard from "./ui/NewsCard/newsCard";
 
 export default function Home() {
@@ -20,8 +21,9 @@ export default function Home() {
 
   return (
     <div>
+      <Header />
       {news ? (
-        <div>
+        <div style={{ paddingTop: "1000px" }}>
           {news.map((newsItem: InewsItem, index: number) => (
             <NewsCard
             key={index}
