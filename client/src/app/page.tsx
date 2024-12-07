@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { fetchNews } from "@/services/newsServices";
 import { InewsItem } from "@/interfaces";
+import NewsCard from "./ui/NewsCard/newsCard";
 
 export default function Home() {
 
@@ -19,29 +20,23 @@ export default function Home() {
 
   return (
     <div>
-      {/* {news ? (
+      {news ? (
         <div>
           {news.map((newsItem: InewsItem, index: number) => (
-            <div key={index}>
-              <h3>{newsItem.name}</h3>
-              <h2>{newsItem.title}</h2>
-              <p>{newsItem.description}</p>
-              <a href={newsItem.url} target="_blank" rel="noopener noreferrer">
-                Read more
-              </a>
-              <p>Published at: {new Date(newsItem.publishedAt).toLocaleString()}</p>
-              <img
-              src={newsItem.urlToImage}
-              width={500}
-              height={500}
-              alt="Picture of the news"
-              />
-            </div>
+            <NewsCard
+            key={index}
+            name={newsItem.name}
+            title={newsItem.title}
+            description={newsItem.description}
+            url={newsItem.url}
+            urlToImage={newsItem.urlToImage}
+            publishedAt={new Date(newsItem.publishedAt).toLocaleString()}
+            />
           ))}
         </div>
       ) : (
         <p>Loading...</p>
-      )} */}
+      )}
       
     </div>
   );
