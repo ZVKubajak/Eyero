@@ -1,10 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { fetchNews } from "@/services/newsServices";
+import { fetchNews } from "@/lib/newsServices";
 import { InewsItem } from "@/interfaces";
-import Header from "./ui/Header/header";
-import NewsCard from "./ui/NewsCard/newsCard";
 
 export default function Home() {
 
@@ -21,10 +19,11 @@ export default function Home() {
 
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       {news ? (
-        <div style={{ paddingTop: "1000px" }}>
-          {news.map((newsItem: InewsItem, index: number) => (
+        <div>
+
+          {/* {news.map((newsItem: InewsItem, index: number) => (
             <NewsCard
             key={index}
             name={newsItem.name}
@@ -34,7 +33,7 @@ export default function Home() {
             urlToImage={newsItem.urlToImage}
             publishedAt={new Date(newsItem.publishedAt).toLocaleString()}
             />
-          ))}
+          ))} */}
         </div>
       ) : (
         <p>Loading...</p>
