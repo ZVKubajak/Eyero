@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "./ui/Header/header";
+import SideLayout from "./ui/SideLayout/SideLayout";
 import "./styles/globals.css";
 
 export const metadata: Metadata = {
@@ -14,8 +15,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Header />
       <body>
+        <div className="perm">
+        <SideLayout />
+        <Header />
+        </div>
+
         {children}
       </body>
     </html>

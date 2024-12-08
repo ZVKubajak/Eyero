@@ -71,3 +71,9 @@ body {
     @apply bg-background text-foreground;
     }
 }
+
+.perm {
+
+  display: flex;
+  flex-direction: row;
+}

@@ -1,0 +1,22 @@
+.sidelayout-div {
+
+    background-color: #060610;
+    height: 91vh;
+    border-right: 1px solid white;
+}
+
+.header-sidelogo {
+
+    background-color: #060610;
+    height: 80px;
+    border-right: 1px solid white;
+    border-bottom: 1px solid white;
+    display: flex;
+    align-items: center;
+}
+
+.header-sidelogo h1 {
+
+    font-size: 40px;
+    margin-left: 40px;
+}
