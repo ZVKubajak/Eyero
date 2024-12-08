@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import Header from "./ui/Header/header";
+import "./styles/globals.css";
 
 export const metadata: Metadata = {
   title: "eyero",
@@ -13,6 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Header />
       <body>
         {children}
       </body>

@@ -1,4 +1,5 @@
 import { InewsItem } from "@/interfaces";
+import "./newsCard.css";
 
 const NewsCard = ({
   name,
@@ -12,11 +13,13 @@ const NewsCard = ({
     <div>
       <a href={url} target="_blank" rel="noopener noreferrer">
       <div className="newscard-div">
-        <img src={urlToImage} alt={description} />
+        <img className="news-image" src={urlToImage} alt={description} />
         <div className="info-container">
-          <h1 style={{ color: "white" }}>{title}</h1>
-          <p style={{ color: "white" }}>{name}</p>
-          <p style={{ color: "white" }}>{publishedAt}</p>
+          <h1 className="newscard-title">{title}</h1>
+            <div className="minor-detail-info">
+            <p className="minor-detail">{name}</p>
+            <p className="minor-detail">{publishedAt}</p>
+            </div>
         </div>
       </div>
       </a>
