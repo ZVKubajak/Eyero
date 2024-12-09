@@ -1,6 +1,6 @@
 export const fetchHomepageStockData = async (ticker: string) => {
   try {
-    const response = await fetch(`/routes/stocks/home/:${ticker}`);
+    const response = await fetch(`/routes/stocks/home/${ticker}`);
 
     if (!response.ok) {
       throw new Error("Network response was not ok.");
