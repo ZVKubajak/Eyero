@@ -5,7 +5,7 @@ import { Plus, RefreshCw, SunMoon } from "lucide-react";
 
 const Header = () => {
   return (
-    <header className="w-4/5 h-20 float-right grid grid-cols-3 items-center border-b-2">
+    <div className="grid grid-cols-3 items-center">
       <div className="flex items-center justify-self-center space-x-4 ml-8">
         <Button size="icon" className="bg-sky-500">
           <Plus />
@@ -27,7 +27,7 @@ const Header = () => {
           <AvatarFallback>CN</AvatarFallback>
         </Avatar>
       </div>
-    </header>
+    </div>
   );
 };
 

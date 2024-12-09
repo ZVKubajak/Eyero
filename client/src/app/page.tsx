@@ -4,8 +4,9 @@ import { useEffect, useState } from "react";
 import { fetchNews } from "@/lib/newsServices";
 import { InewsItem } from "@/interfaces";
 
-export default function Home() {
+import Chart from "./ui/dashboard/Charts/HomeChart1/HomeChart1";
 
+export default function Home() {
   const [news, setNews] = useState<InewsItem[]>([]);
 
   useEffect(() => {
@@ -14,15 +15,14 @@ export default function Home() {
       setNews(newsData);
     }
 
-    getNews()
-  }, [])
+    getNews();
+  }, []);
 
   return (
     <div>
       {/* <Header /> */}
       {news ? (
         <div>
-
           {/* {news.map((newsItem: InewsItem, index: number) => (
             <NewsCard
             key={index}
@@ -38,7 +38,7 @@ export default function Home() {
       ) : (
         <p>Loading...</p>
       )}
-      
+      <Chart />
     </div>
   );
 }
