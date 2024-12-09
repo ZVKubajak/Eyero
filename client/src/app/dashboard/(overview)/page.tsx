@@ -3,14 +3,17 @@ import Chart from "@/app/ui/dashboard/Chart/chart";
 
 const Page = () => {
   return (
-    <main>
+    <main className="mx-20 my-12">
       <div>
         <header>
-          <h1>Trending Markets</h1>
-          <h2>December 8th</h2>
+          <h1 className="text-3xl font-semibold">Trending Markets</h1>
+          <h2 className="text-xl">December 8th</h2>
         </header>
         <div>
-          <Chart />
+          <div className="grid grid-cols-2 mt-12 pb-12 border-b">
+            <Chart />
+            <Chart />
+          </div>
         </div>
       </div>
     </main>

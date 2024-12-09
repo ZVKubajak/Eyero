@@ -36,7 +36,7 @@ const chartConfig = {
 
 const Chart = () => {
   return (
-    <Card className="w-1/4 border-slate-800" id="chart-card">
+    <Card className="w-3/5 border-slate-800" id="chart-card">
       <CardHeader>
         <div style={{ display: "flex" }}>
           <CardTitle id="chart-card-title">AAPL</CardTitle>
@@ -44,7 +44,7 @@ const Chart = () => {
         </div>
         <CardDescription id="chart-card-price">$254.09</CardDescription>
       </CardHeader>
-      <CardContent className="h-40 overflow-hidden">
+      <CardContent className="h-32 overflow-hidden">
         <ChartContainer config={chartConfig}>
           <LineChart
             width={300}

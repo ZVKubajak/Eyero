@@ -15,7 +15,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           <div className=" flex flex-col w-1/5 border-r-2">
             <div>Sidebar</div>
           </div>
-          <div className="flex-1 border-l-2">{children}</div>
+          <div className="flex-1">{children}</div>
         </main>
       </div>
     </div>
