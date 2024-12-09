@@ -44,7 +44,7 @@ const Chart = () => {
         </div>
         <CardDescription id="chart-card-price">$254.09</CardDescription>
       </CardHeader>
-      <CardContent className="h-32 overflow-hidden">
+      <CardContent className="h-24 overflow-hidden">
         <ChartContainer config={chartConfig}>
           <LineChart
             width={300}
@@ -57,7 +57,7 @@ const Chart = () => {
               bottom: 10,
             }}
           >
-            <CartesianGrid vertical={false} stroke="#333" />
+            <CartesianGrid vertical={false} horizontal={false} stroke="#333" />
             <ChartTooltip
               cursor={true}
               content={<ChartTooltipContent indicator="dot" hideLabel />}
@@ -66,8 +66,8 @@ const Chart = () => {
               dataKey="price"
               type="linear"
               stroke="lightgreen"
-              strokeWidth={2}
-              dot={false}
+              strokeWidth={3}
+              dot={true}
             />
           </LineChart>
         </ChartContainer>
