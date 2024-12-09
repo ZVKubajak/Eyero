@@ -1,11 +1,10 @@
 "use client";
 
-import { Area, AreaChart, CartesianGrid, XAxis } from "recharts";
+import { Line, LineChart, CartesianGrid } from "recharts";
 import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -35,48 +34,41 @@ const chartConfig = {
 
 const Chart = () => {
   return (
-    <div>
-      <Card>
+      <Card className="w-1/4 border-slate-500 bg-stone-950">
         <CardHeader>
-          <CardTitle>Area Chart - Linear</CardTitle>
-          <CardDescription>
-            Showing stock prices for the last 7 days.
-          </CardDescription>
+          <CardTitle className="text-white">AAPL</CardTitle>
+          <CardDescription className="text-white text-xl font-bold">$254.09</CardDescription>
+          <CardDescription className="text-slate-500">Stocks</CardDescription>
         </CardHeader>
-        <CardContent>
+        <CardContent className="h-40 overflow-hidden">
           <ChartContainer config={chartConfig}>
-            <AreaChart
-              accessibilityLayer
+            <LineChart
+              width={300}
+              height={120}
               data={chartData}
               margin={{
-                left: 12,
-                right: 12,
+                top: 10,
+                left: 10,
+                right: 10,
+                bottom: 10,
               }}
             >
-              <CartesianGrid vertical={false} />
-              <XAxis
-                dataKey="day"
-                tickLine={false}
-                axisLine={false}
-                tickMargin={8}
-                tickFormatter={(value) => value.slice(0, 3)}
-              />
+              <CartesianGrid vertical={false} stroke="#333" />
               <ChartTooltip
-                cursor={false}
+                cursor={true}
                 content={<ChartTooltipContent indicator="dot" hideLabel />}
               />
-              <Area
+              <Line
                 dataKey="price"
                 type="linear"
-                fill="var(--color-price)"
-                fillOpacity={0.4}
-                stroke="var(--color-desktop)"
+                stroke="lightgreen"
+                strokeWidth={2}
+                dot={false}
               />
-            </AreaChart>
+            </LineChart>
           </ChartContainer>
         </CardContent>
       </Card>
-    </div>
   );
 };
 
