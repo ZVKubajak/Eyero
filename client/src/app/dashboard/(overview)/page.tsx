@@ -1,4 +1,5 @@
-import Chart from "@/app/ui/dashboard/Chart/chart";
+import HomeChart1 from "@/app/ui/dashboard/Charts/HomeChart1/HomeChart1";
+import HomeChart2 from "@/app/ui/dashboard/Charts/HomeChart2/HomeChart2";
 // Import NewsCard
 
 const Page = () => {
@@ -11,14 +12,14 @@ const Page = () => {
         </header>
         <div>
           <div className="grid grid-cols-2 mt-8 pb-4 border-b">
-            <Chart />
-            <Chart />
+            <HomeChart1 />
+            <HomeChart1 />
           </div>
           <div className="grid grid-cols-4 mt-4">
-            <Chart />
-            <Chart />
-            <Chart />
-            <Chart />
+            <HomeChart2 />
+            <HomeChart2 />
+            <HomeChart2 />
+            <HomeChart2 />
           </div>
         </div>
         {/* News Goes Here */}

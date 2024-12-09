@@ -1,0 +1,19 @@
+#chart-card {
+  background-color: #0c0a14;
+}
+
+#chart-card-title {
+  color: white;
+  font-size: 24px;
+}
+
+#chart-card-category {
+  color: #617b96;
+  margin-left: 8px;
+}
+
+#chart-card-price {
+  color: white;
+  font-size: 32px;
+  margin-top: 12px;
+}

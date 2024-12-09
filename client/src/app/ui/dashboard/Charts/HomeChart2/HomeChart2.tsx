@@ -1,6 +1,6 @@
 "use client";
 
-import "./chart.css";
+import "./homechart2.css";
 import { Line, LineChart, CartesianGrid } from "recharts";
 import {
   Card,
@@ -34,7 +34,7 @@ const chartConfig = {
   },
 } satisfies ChartConfig;
 
-const Chart = () => {
+const HomeChart2 = () => {
   return (
     <Card className="w-3/5 border-slate-800" id="chart-card">
       <CardHeader>
@@ -76,4 +76,4 @@ const Chart = () => {
   );
 };
 
-export default Chart;
+export default HomeChart2;
