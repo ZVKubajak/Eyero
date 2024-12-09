@@ -1,6 +1,8 @@
 "use client";
 
 import "./homechart1.css";
+import { fetchHomepageStockData } from "@/lib/homeData";
+import { StockData } from "@/interfaces";
 import { Line, LineChart, CartesianGrid } from "recharts";
 import {
   Card,
@@ -15,17 +17,18 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
+import { useState, useEffect } from "react";
 
-// Chart Test Data
-const chartData = [
-  { date: "12/01", price: 230 },
-  { date: "12/02", price: 238 },
-  { date: "12/03", price: 222 },
-  { date: "12/04", price: 267 },
-  { date: "12/05", price: 275 },
-  { date: "12/06", price: 281 },
-  { date: "12/07", price: 277 },
-];
+// // Chart Test Data
+// const chartData = [
+//   { date: "12/01", price: 230 },
+//   { date: "12/02", price: 238 },
+//   { date: "12/03", price: 222 },
+//   { date: "12/04", price: 267 },
+//   { date: "12/05", price: 275 },
+//   { date: "12/06", price: 281 },
+//   { date: "12/07", price: 277 },
+// ];
 
 const chartConfig = {
   price: {
@@ -35,6 +38,18 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 const HomeChart1 = () => {
+  const [AAPLData, setAAPLData] = useState<StockData[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await fetchHomepageStockData("AAPL");
+      console.log(data);
+      setAAPLData(data);
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <Card className="w-3/5 border-slate-800" id="chart1-card">
       <CardHeader>
@@ -49,7 +64,7 @@ const HomeChart1 = () => {
           <LineChart
             width={300}
             height={120}
-            data={chartData}
+            data={AAPLData}
             margin={{
               top: 10,
               left: 10,

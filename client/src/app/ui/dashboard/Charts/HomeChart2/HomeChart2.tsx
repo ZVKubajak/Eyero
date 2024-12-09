@@ -1,7 +1,7 @@
 "use client";
 
 import "./homechart2.css";
-import { Bar, BarChart, CartesianGrid, LabelList } from "recharts";
+import { Bar, BarChart, CartesianGrid } from "recharts";
 import {
   Card,
   CardContent,

@@ -9,6 +9,6 @@ const router = Router();
 
 router.get("/current/:ticker", fetchCurrentStockData);
 router.get("/historical/:ticker", fetchHistoricalStockData);
-router.get("/home", fetchCompactStockData);
+router.get("/home/:ticker", fetchCompactStockData);
 
 export { router as stockRoutes };
