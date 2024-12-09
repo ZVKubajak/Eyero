@@ -36,13 +36,13 @@ const chartConfig = {
 
 const HomeChart1 = () => {
   return (
-    <Card className="w-3/5 border-slate-800" id="chart-card">
+    <Card className="w-3/5 border-slate-800" id="chart1-card">
       <CardHeader>
         <div style={{ display: "flex" }}>
-          <CardTitle id="chart-card-title">AAPL</CardTitle>
-          <CardDescription id="chart-card-category">Stocks</CardDescription>
+          <CardTitle id="chart1-card-title">AAPL</CardTitle>
+          <CardDescription id="chart1-card-category">Stocks</CardDescription>
         </div>
-        <CardDescription id="chart-card-price">$254.09</CardDescription>
+        <CardDescription id="chart1-card-price">$254.09</CardDescription>
       </CardHeader>
       <CardContent className="h-24 overflow-hidden">
         <ChartContainer config={chartConfig}>

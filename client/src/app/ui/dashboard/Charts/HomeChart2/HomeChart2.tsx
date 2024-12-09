@@ -1,7 +1,7 @@
 "use client";
 
 import "./homechart2.css";
-import { Line, LineChart, CartesianGrid } from "recharts";
+import { Bar, BarChart, CartesianGrid, LabelList } from "recharts";
 import {
   Card,
   CardContent,
@@ -18,13 +18,13 @@ import {
 
 // Chart Test Data
 const chartData = [
-  { date: "12/01", price: 230 },
-  { date: "12/02", price: 238 },
-  { date: "12/03", price: 222 },
-  { date: "12/04", price: 267 },
-  { date: "12/05", price: 275 },
-  { date: "12/06", price: 281 },
-  { date: "12/07", price: 277 },
+  { date: "12/01", price: 524 },
+  { date: "12/02", price: 879 },
+  { date: "12/03", price: 400 },
+  { date: "12/04", price: 650 },
+  { date: "12/05", price: 799 },
+  { date: "12/06", price: 555 },
+  { date: "12/07", price: 568 },
 ];
 
 const chartConfig = {
@@ -36,40 +36,37 @@ const chartConfig = {
 
 const HomeChart2 = () => {
   return (
-    <Card className="w-3/5 border-slate-800" id="chart-card">
-      <CardHeader>
+    <Card className="w-3/5 border-slate-800 rounded-lg" id="chart2-card">
+      <CardHeader className="py-2 pl-2">
         <div style={{ display: "flex" }}>
-          <CardTitle id="chart-card-title">AAPL</CardTitle>
-          <CardDescription id="chart-card-category">Stocks</CardDescription>
+          <CardTitle id="chart2-card-title">GOOG</CardTitle>
+          <CardDescription id="chart2-card-price">$371.68</CardDescription>
         </div>
-        <CardDescription id="chart-card-price">$254.09</CardDescription>
       </CardHeader>
-      <CardContent className="h-24 overflow-hidden">
+      <CardContent className="h-24 px-4 overflow-hidden">
         <ChartContainer config={chartConfig}>
-          <LineChart
+          <BarChart
             width={300}
             height={120}
             data={chartData}
             margin={{
-              top: 10,
-              left: 10,
-              right: 10,
+              top: 0,
+              left: 5,
+              right: 5,
               bottom: 10,
             }}
           >
             <CartesianGrid vertical={false} horizontal={false} stroke="#333" />
             <ChartTooltip
-              cursor={true}
+              cursor={false}
               content={<ChartTooltipContent indicator="dot" hideLabel />}
             />
-            <Line
+            <Bar
               dataKey="price"
-              type="linear"
-              stroke="lightgreen"
-              strokeWidth={3}
-              dot={true}
+              fill="lightgreen"
+              radius={4}
             />
-          </LineChart>
+          </BarChart>
         </ChartContainer>
       </CardContent>
     </Card>
