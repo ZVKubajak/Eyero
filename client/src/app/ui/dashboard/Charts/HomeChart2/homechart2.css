@@ -1,0 +1,14 @@
+#chart2-card {
+  background-color: #0c0a14;
+}
+
+#chart2-card-title {
+  color: white;
+  font-size: 20px;
+}
+
+#chart2-card-price {
+  color: lightgray;
+  font-size: 16px;
+  margin-left: 8px;
+}
