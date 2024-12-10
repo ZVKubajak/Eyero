@@ -1,19 +1,19 @@
 import Header from "../ui/Header/header";
-// Import Sidebar
+import Sidebar from "../ui/sidebar/Sidebar";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div>
       <div className="flex flex-col h-screen">
-        <header className="flex justify-end h-20 items-center border-b-2">
+        <header className="flex justify-end h-20 items-center border-b border-gray-700">
           <div className="w-4/5">
             <Header />
           </div>
         </header>
 
         <main className="flex flex-1">
-          <div className=" flex flex-col w-1/5 border-r-2">
-            <div>Sidebar</div>
+          <div className=" flex flex-col w-1/5 border-r border-gray-700">
+            <Sidebar />
           </div>
           <div className="flex-1">{children}</div>
         </main>
