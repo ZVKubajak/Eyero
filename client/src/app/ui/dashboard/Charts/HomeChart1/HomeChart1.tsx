@@ -3,7 +3,7 @@
 import "./homechart1.css";
 import { fetchHomepageStockData } from "@/lib/homeData";
 import { StockData } from "@/interfaces";
-import { Line, LineChart, CartesianGrid } from "recharts";
+import { Line, LineChart, CartesianGrid, YAxis } from "recharts";
 import {
   Card,
   CardContent,
@@ -47,12 +47,13 @@ const HomeChart1 = () => {
       const data = await fetchHomepageStockData("AAPL");
 
       if (data) {
-        const mappedData = data.map((dataPoint: StockData) => ({
-          date: dataPoint.date,
-          price: dataPoint.close,
-        }))
-        .reverse()
-        .slice(-30);
+        const mappedData = data
+          .map((dataPoint: StockData) => ({
+            date: dataPoint.date,
+            price: dataPoint.close,
+          }))
+          .reverse()
+          .slice(-30);
         console.log(mappedData); // CONSOLE LOG
         setChartData(mappedData);
       }
@@ -68,7 +69,9 @@ const HomeChart1 = () => {
           <CardTitle id="chart1-card-title">AAPL</CardTitle>
           <CardDescription id="chart1-card-category">Stocks</CardDescription>
         </div>
-        <CardDescription id="chart1-card-price">$254.09</CardDescription>
+        <CardDescription id="chart1-card-price">
+          {chartData.length > 0 ? `$${chartData[30].price}` : "Loading..."}
+        </CardDescription>
       </CardHeader>
       <CardContent className="h-24 overflow-hidden">
         <ChartContainer config={chartConfig}>
@@ -84,6 +87,7 @@ const HomeChart1 = () => {
             }}
           >
             <CartesianGrid vertical={false} horizontal={false} stroke="#333" />
+            <YAxis hide domain={["auto", "auto"]} />
             <ChartTooltip
               cursor={true}
               content={<ChartTooltipContent indicator="dot" hideLabel />}
