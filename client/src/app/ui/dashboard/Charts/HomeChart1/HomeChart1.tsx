@@ -38,13 +38,24 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 const HomeChart1 = () => {
-  const [AAPLData, setAAPLData] = useState<StockData[]>([]);
+  const [chartData, setChartData] = useState<{ date: string; price: number }[]>(
+    []
+  );
 
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetchHomepageStockData("AAPL");
-      console.log(data);
-      setAAPLData(data);
+
+      if (data) {
+        const mappedData = data.map((dataPoint: StockData) => ({
+          date: dataPoint.date,
+          price: dataPoint.close,
+        }))
+        .reverse()
+        .slice(-30);
+        console.log(mappedData); // CONSOLE LOG
+        setChartData(mappedData);
+      }
     };
 
     fetchData();
@@ -64,7 +75,7 @@ const HomeChart1 = () => {
           <LineChart
             width={300}
             height={120}
-            data={AAPLData}
+            data={chartData}
             margin={{
               top: 10,
               left: 10,
@@ -82,7 +93,7 @@ const HomeChart1 = () => {
               type="linear"
               stroke="lightgreen"
               strokeWidth={3}
-              dot={true}
+              dot={false}
             />
           </LineChart>
         </ChartContainer>
