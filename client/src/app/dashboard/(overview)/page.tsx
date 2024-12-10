@@ -27,7 +27,7 @@ const Page = () => {
           <h2 className="text-xl">December 8th</h2>
         </header>
         <div>
-          <div className="grid grid-cols-3 mt-2 pb-4 border-b">
+          <div className="grid grid-cols-3 mt-2 pb-4 border-b border-gray-700">
             <HomeChart1 />
             <HomeChart1 />
             <HomeChart1 />
