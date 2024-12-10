@@ -51,7 +51,7 @@ const HomeChart1 = () => {
   // }, []);
 
   return (
-    <Card className="w-3/5 border-slate-800" id="chart1-card">
+    <Card className="w-4/5 border-slate-800" id="chart1-card">
       <CardHeader>
         <div style={{ display: "flex" }}>
           <CardTitle id="chart1-card-title">AAPL</CardTitle>
