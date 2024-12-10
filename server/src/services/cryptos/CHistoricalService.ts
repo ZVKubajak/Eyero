@@ -8,7 +8,7 @@ export const getHistoricalCryptoPrice = async (id: string) => {
       {
         params: {
           vs_currency: "usd",
-          days: "max",
+          days: "365",
           interval: "daily",
         },
       }
