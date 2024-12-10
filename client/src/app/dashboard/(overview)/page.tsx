@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import HomeChart1 from "@/app/ui/dashboard/Charts/HomeChart1/HomeChart1";
 import HomeChart2 from "@/app/ui/dashboard/Charts/HomeChart2/HomeChart2";
+import { chart1HomepageDefaults } from "@/lib/utils";
 import NewsCard from "@/app/ui/dashboard/NewsCard/newsCard";
 import { fetchNews } from "@/lib/newsServices";
 import { InewsItem } from "@/interfaces";
@@ -48,9 +49,9 @@ const Page = () => {
         </header>
         <div>
           <div className="grid grid-cols-3 mt-5 pb-4 border-b border-gray-700">
-            <HomeChart1 />
-            <HomeChart1 />
-            <HomeChart1 />
+            <HomeChart1 ticker={chart1HomepageDefaults[0]} />
+            <HomeChart1 ticker={chart1HomepageDefaults[1]} />
+            <HomeChart1 ticker={chart1HomepageDefaults[2]} />
           </div>
           <div className="grid grid-cols-4 mt-4">
             <HomeChart2 />

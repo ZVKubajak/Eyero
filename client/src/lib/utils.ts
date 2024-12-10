@@ -6,6 +6,9 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+export const chart1HomepageDefaults = ["AAPL", "NVDA", "XOM"]
+export const chart2HomepageDefaults = ["BTC", "ETC", "XRP", "DOGE"]
+
 export const transformStockData = (data: StockApiResponse): StockData[] => {
   const timeSeries = data["Time Series (Daily)"];
 

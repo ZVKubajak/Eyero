@@ -19,17 +19,6 @@ import {
 } from "@/components/ui/chart";
 import { useState, useEffect } from "react";
 
-// // Chart Test Data
-// const chartData = [
-//   { date: "12/01", price: 230 },
-//   { date: "12/02", price: 238 },
-//   { date: "12/03", price: 222 },
-//   { date: "12/04", price: 267 },
-//   { date: "12/05", price: 275 },
-//   { date: "12/06", price: 281 },
-//   { date: "12/07", price: 277 },
-// ];
-
 const chartConfig = {
   price: {
     label: "Price",
@@ -37,14 +26,14 @@ const chartConfig = {
   },
 } satisfies ChartConfig;
 
-const HomeChart1 = () => {
+const HomeChart1 = ({ ticker }: { ticker: string }) => {
   const [chartData, setChartData] = useState<{ date: string; price: number }[]>(
     []
   );
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await fetchHomepageStockData("AAPL");
+      const data = await fetchHomepageStockData(ticker);
 
       if (data) {
         const mappedData = data
@@ -54,7 +43,7 @@ const HomeChart1 = () => {
           }))
           .reverse()
           .slice(-30);
-        console.log(mappedData); // CONSOLE LOG
+        console.log(mappedData);
         setChartData(mappedData);
       }
     };
