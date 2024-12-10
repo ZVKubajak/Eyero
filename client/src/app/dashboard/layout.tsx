@@ -1,5 +1,5 @@
 import Header from "../ui/Header/header";
-// Import Sidebar
+import Sidebar from "../ui/sidebar/Sidebar";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -13,7 +13,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
         <main className="flex flex-1">
           <div className=" flex flex-col w-1/5 border-r-2">
-            <div>Sidebar</div>
+            <Sidebar />
           </div>
           <div className="flex-1">{children}</div>
         </main>

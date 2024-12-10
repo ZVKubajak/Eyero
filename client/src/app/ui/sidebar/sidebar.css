@@ -1,0 +1,46 @@
+.sidebar-container {
+
+    margin: 25px;
+}
+
+.upgrade-container {
+    margin: 200px 25px 25px;
+}
+
+.upgrade-button {
+
+    transition: background-image 0.3s ease;
+    padding: 10px;
+    border-radius: 10px;
+    background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.upgrade-button:hover {
+
+    cursor: pointer;
+    background-image: linear-gradient(135deg, #5566cc 0%, #653a91 100%);
+}
+
+.upgrade-children {
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.star-upgrade {
+
+    margin: 0 20px 0 0;
+}
+
+.star-icon {
+
+    width: 24px;
+    height: 24px;
+}
+
+.upgrade-text h3 {
+
+    font-size: 15px;
+    color: #d3d3d3;
+}
