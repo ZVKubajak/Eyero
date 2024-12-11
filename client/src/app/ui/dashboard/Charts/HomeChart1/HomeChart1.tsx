@@ -1,8 +1,8 @@
 "use client";
 
 import "./homechart1.css";
-import { fetchHomepageStockData } from "@/lib/homeData";
-import { StockData } from "@/interfaces";
+// import { fetchHomepageStockData } from "@/lib/homeData";
+// import { StockData } from "@/interfaces";
 import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from "recharts";
 import {
   Card,
@@ -17,7 +17,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 
 const chartConfig = {
   price: {
@@ -27,61 +27,53 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 const HomeChart1 = ({ ticker }: { ticker: string }) => {
-  const [chartData, setChartData] = useState<{ date: string; price: number }[]>(
-    []
-  );
+  // const [chartData, setChartData] = useState<{ date: string; price: number }[]>(
+  //   []
+  // );
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await fetchHomepageStockData(ticker);
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const data = await fetchHomepageStockData(ticker);
 
-      if (data) {
-        const mappedData = data
-          .map((dataPoint: StockData) => ({
-            date: dataPoint.date,
-            price: dataPoint.close,
-          }))
-          .reverse()
-          .slice(-30);
-        console.log(mappedData);
-        setChartData(mappedData);
-      }
-    };
+  //     if (data) {
+  //       const mappedData = data
+  //         .map((dataPoint: StockData) => ({
+  //           date: dataPoint.date,
+  //           price: dataPoint.close,
+  //         }))
+  //         .reverse()
+  //         .slice(-30);
+  //       console.log(mappedData);
+  //       setChartData(mappedData);
+  //     }
+  //   };
 
-    fetchData();
-  }, []);
+  //   fetchData();
+  // }, []);
 
   const testData = [
-    { date: "2024-12-01", price: 233.46 },
-    { date: "2024-12-02", price: 252.07 },
-    { date: "2024-12-03", price: 290.6 },
-    { date: "2024-12-04", price: 260.54 },
-    { date: "2024-12-05", price: 272.71 },
-    { date: "2024-12-06", price: 293.63 },
-    { date: "2024-12-07", price: 285.75 },
-    { date: "2024-12-08", price: 292.13 },
-    { date: "2024-12-09", price: 265.86 },
-    { date: "2024-12-10", price: 252.04 },
-    { date: "2024-12-11", price: 252.94 },
-    { date: "2024-12-12", price: 271.48 },
-    { date: "2024-12-13", price: 291.96 },
-    { date: "2024-12-14", price: 289.05 },
-    { date: "2024-12-15", price: 251.76 },
-    { date: "2024-12-16", price: 263.25 },
-    { date: "2024-12-17", price: 270.18 },
-    { date: "2024-12-18", price: 285.7 },
-    { date: "2024-12-19", price: 270.32 },
-    { date: "2024-12-20", price: 255.16 },
-    { date: "2024-12-21", price: 281.25 },
-    { date: "2024-12-22", price: 288.86 },
-    { date: "2024-12-23", price: 275.1 },
-    { date: "2024-12-24", price: 270.67 },
-    { date: "2024-12-25", price: 279.0 },
-    { date: "2024-12-26", price: 263.3 },
-    { date: "2024-12-27", price: 291.76 },
-    { date: "2024-12-28", price: 261.68 },
-    { date: "2024-12-29", price: 278.55 },
-    { date: "2024-12-30", price: 265.85 },
+    { date: "2024-11-11", price: 224.23 },
+    { date: "2024-11-12", price: 224.23 },
+    { date: "2024-11-13", price: 225.12 },
+    { date: "2024-11-14", price: 228.22 },
+    { date: "2024-11-15", price: 225.00 },
+    { date: "2024-11-16", price: 228.02 },
+    { date: "2024-11-17", price: 228.28 },
+    { date: "2024-11-18", price: 229.00 },
+    { date: "2024-11-19", price: 228.52 },
+    { date: "2024-11-20", price: 229.87 },
+    { date: "2024-11-21", price: 232.87 },
+    { date: "2024-11-22", price: 235.06 },
+    { date: "2024-11-23", price: 234.93 },
+    { date: "2024-11-24", price: 237.33 },
+    { date: "2024-11-25", price: 239.59 },
+    { date: "2024-11-26", price: 242.65 },
+    { date: "2024-11-27", price: 243.01 },
+    { date: "2024-11-28", price: 243.04 },
+    { date: "2024-11-29", price: 242.84 },
+    { date: "2024-11-30", price: 246.75 },
+    { date: "2024-12-01", price: 247.77 },
+    { date: "2024-12-02", price: 249.91 },
   ];
 
   return (
@@ -127,7 +119,7 @@ const HomeChart1 = ({ ticker }: { ticker: string }) => {
             <ChartTooltip cursor={true} content={<ChartTooltipContent />} />
             <defs>
               <linearGradient id="fillChart" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="lightgreen" stopOpacity={0.8} />
+                <stop offset="5%" stopColor="lightgreen" stopOpacity={0.7} />
                 <stop offset="95%" stopColor="lightgreen" stopOpacity={0.1} />
               </linearGradient>
             </defs>
@@ -137,7 +129,7 @@ const HomeChart1 = ({ ticker }: { ticker: string }) => {
               fill="url(#fillChart)"
               fillOpacity={0.4}
               stroke="lightgreen"
-              strokeWidth={2}
+              strokeWidth={1.5}
             />
           </AreaChart>
         </ChartContainer>
