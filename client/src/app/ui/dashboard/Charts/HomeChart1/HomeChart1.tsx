@@ -1,8 +1,8 @@
 "use client";
 
 import "./homechart1.css";
-// import { fetchHomepageStockData } from "@/lib/homeData";
-// import { StockData } from "@/interfaces";
+import { fetchHomepageStockData } from "@/lib/homeData";
+import { StockData } from "@/interfaces";
 import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from "recharts";
 import {
   Card,
@@ -17,7 +17,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
-// import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const chartConfig = {
   price: {
@@ -27,54 +27,54 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 const HomeChart1 = ({ ticker }: { ticker: string }) => {
-  // const [chartData, setChartData] = useState<{ date: string; price: number }[]>(
-  //   []
-  // );
+  const [chartData, setChartData] = useState<{ date: string; price: number }[]>(
+    []
+  );
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const data = await fetchHomepageStockData(ticker);
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await fetchHomepageStockData(ticker);
 
-  //     if (data) {
-  //       const mappedData = data
-  //         .map((dataPoint: StockData) => ({
-  //           date: dataPoint.date,
-  //           price: dataPoint.close,
-  //         }))
-  //         .reverse()
-  //         .slice(-30);
-  //       console.log(mappedData);
-  //       setChartData(mappedData);
-  //     }
-  //   };
+      if (data) {
+        const mappedData = data
+          .map((dataPoint: StockData) => ({
+            date: dataPoint.date,
+            price: dataPoint.close,
+          }))
+          .reverse()
+          .slice(-30);
+        console.log(mappedData);
+        setChartData(mappedData);
+      }
+    };
 
-  //   fetchData();
-  // }, []);
+    fetchData();
+  }, []);
 
-  const testData = [
-    { date: "2024-11-11", price: 224.23 },
-    { date: "2024-11-12", price: 224.23 },
-    { date: "2024-11-13", price: 225.12 },
-    { date: "2024-11-14", price: 228.22 },
-    { date: "2024-11-15", price: 225.00 },
-    { date: "2024-11-16", price: 228.02 },
-    { date: "2024-11-17", price: 228.28 },
-    { date: "2024-11-18", price: 229.00 },
-    { date: "2024-11-19", price: 228.52 },
-    { date: "2024-11-20", price: 229.87 },
-    { date: "2024-11-21", price: 232.87 },
-    { date: "2024-11-22", price: 235.06 },
-    { date: "2024-11-23", price: 234.93 },
-    { date: "2024-11-24", price: 237.33 },
-    { date: "2024-11-25", price: 239.59 },
-    { date: "2024-11-26", price: 242.65 },
-    { date: "2024-11-27", price: 243.01 },
-    { date: "2024-11-28", price: 243.04 },
-    { date: "2024-11-29", price: 242.84 },
-    { date: "2024-11-30", price: 246.75 },
-    { date: "2024-12-01", price: 247.77 },
-    { date: "2024-12-02", price: 249.91 },
-  ];
+  // const testData = [
+  //   { date: "2024-11-11", price: 224.23 },
+  //   { date: "2024-11-12", price: 224.23 },
+  //   { date: "2024-11-13", price: 225.12 },
+  //   { date: "2024-11-14", price: 228.22 },
+  //   { date: "2024-11-15", price: 225.00 },
+  //   { date: "2024-11-16", price: 228.02 },
+  //   { date: "2024-11-17", price: 228.28 },
+  //   { date: "2024-11-18", price: 229.00 },
+  //   { date: "2024-11-19", price: 228.52 },
+  //   { date: "2024-11-20", price: 229.87 },
+  //   { date: "2024-11-21", price: 232.87 },
+  //   { date: "2024-11-22", price: 235.06 },
+  //   { date: "2024-11-23", price: 234.93 },
+  //   { date: "2024-11-24", price: 237.33 },
+  //   { date: "2024-11-25", price: 239.59 },
+  //   { date: "2024-11-26", price: 242.65 },
+  //   { date: "2024-11-27", price: 243.01 },
+  //   { date: "2024-11-28", price: 243.04 },
+  //   { date: "2024-11-29", price: 242.84 },
+  //   { date: "2024-11-30", price: 246.75 },
+  //   { date: "2024-12-01", price: 247.77 },
+  //   { date: "2024-12-02", price: 249.91 },
+  // ];
 
   return (
     <Card className="w-4/5 border-slate-800" id="chart1-card">
@@ -84,8 +84,8 @@ const HomeChart1 = ({ ticker }: { ticker: string }) => {
           <CardDescription id="chart1-card-category">Stocks</CardDescription>
         </div>
         <CardDescription id="chart1-card-price">
-          {testData.length > 0
-            ? `$${testData[testData.length - 1].price}`
+          {chartData.length > 0
+            ? `$${chartData[chartData.length - 1].price}`
             : "Loading..."}
         </CardDescription>
       </CardHeader>
@@ -93,7 +93,7 @@ const HomeChart1 = ({ ticker }: { ticker: string }) => {
         <ChartContainer config={chartConfig} className="w-full h-32">
           <AreaChart
             accessibilityLayer
-            data={testData}
+            data={chartData}
             margin={{
               top: 10,
               left: 15,
