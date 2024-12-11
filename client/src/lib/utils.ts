@@ -6,8 +6,13 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export const chart1HomepageDefaults = ["AAPL", "NVDA", "XOM"]
-export const chart2HomepageDefaults = ["BTC", "ETC", "XRP", "DOGE"]
+export const chart1HomepageDefaults = ["AAPL", "NVDA", "XOM"];
+export const chart2HomepageDefaults = [
+  "bitcoin",
+  "ethereum",
+  "ripple",
+  "dogecoin",
+];
 
 export const transformStockData = (data: StockApiResponse): StockData[] => {
   const timeSeries = data["Time Series (Daily)"];
@@ -22,4 +27,8 @@ export const transformStockData = (data: StockApiResponse): StockData[] => {
     close: parseFloat(values["4. close"]),
     volume: parseInt(values["5. volume"], 10),
   }));
+};
+
+export const formatPrice = (price: number) => {
+  return (Math.round(price * 100) / 100).toFixed(2);
 };

@@ -29,3 +29,9 @@ interface TimeSeriesDaily {
 export interface StockApiResponse {
   "Time Series (Daily)": TimeSeriesDaily;
 }
+
+export interface CryptoData {
+  prices: [];
+  marketCaps: [];
+  totalVolumes: [];
+}

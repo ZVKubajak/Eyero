@@ -1,5 +1,5 @@
 import { transformStockData } from "./utils";
-import { StockData } from "@/interfaces";
+import { StockData, CryptoData } from "@/interfaces";
 
 export const fetchHomepageStockData = async (
   ticker: string
@@ -25,7 +25,7 @@ export const fetchHomepageStockData = async (
 
 export const fetchHomepageCryptoData = async (
   id: string
-): Promise<StockData[]> => {
+): Promise<CryptoData> => {
   try {
     const response = await fetch(`/routes/crypto/home/${id}`);
 
@@ -41,6 +41,6 @@ export const fetchHomepageCryptoData = async (
       "There has been a problem with your fetch operation: ",
       error
     );
-    return [];
+    return {} as CryptoData;
   }
 };

@@ -1,6 +1,8 @@
 "use client";
 
 import "./homechart2.css";
+import { fetchHomepageCryptoData } from "@/lib/homeData";
+import { formatPrice } from "@/lib/utils";
 import { Bar, BarChart, CartesianGrid } from "recharts";
 import {
   Card,
@@ -15,17 +17,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
-
-// Chart Test Data
-const chartData = [
-  { date: "12/01", price: 524 },
-  { date: "12/02", price: 879 },
-  { date: "12/03", price: 400 },
-  { date: "12/04", price: 650 },
-  { date: "12/05", price: 799 },
-  { date: "12/06", price: 555 },
-  { date: "12/07", price: 568 },
-];
+import { useState, useEffect } from "react";
 
 const chartConfig = {
   price: {
@@ -34,13 +26,54 @@ const chartConfig = {
   },
 } satisfies ChartConfig;
 
-const HomeChart2 = () => {
+const HomeChart2 = ({ id }: { id: string }) => {
+  const [chartData, setChartData] = useState<
+    { timestamp: number; price: number }[]
+  >([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await fetchHomepageCryptoData(id);
+
+      if (data) {
+        const mappedData = data.prices.map((dataPoint: [number, number]) => ({
+          timestamp: dataPoint[0],
+          price: dataPoint[1],
+        }));
+        setChartData(mappedData);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  let formattedPrice = "Loading...";
+  if (chartData.length > 0) {
+    const unformattedPrice = chartData[chartData.length - 1].price;
+
+    formattedPrice = formatPrice(unformattedPrice);
+    console.log(formattedPrice);
+  }
+
+  let symbol;
+  if (id === "bitcoin") {
+    symbol = "BTC";
+  } else if (id === "ethereum") {
+    symbol = "ETH";
+  } else if (id === "ripple") {
+    symbol = "XRP";
+  } else if (id === "dogecoin") {
+    symbol = "DOGE";
+  }
+
   return (
     <Card className="w-3/5 border-slate-800 rounded-lg" id="chart2-card">
       <CardHeader className="py-2 pl-2">
         <div style={{ display: "flex" }}>
-          <CardTitle id="chart2-card-title">GOOG</CardTitle>
-          <CardDescription id="chart2-card-price">$371.68</CardDescription>
+          <CardTitle id="chart2-card-title">{symbol}</CardTitle>
+          <CardDescription id="chart2-card-price">
+            {`$${formattedPrice}`}
+          </CardDescription>
         </div>
       </CardHeader>
       <CardContent className="h-24 px-4 overflow-hidden">
@@ -61,11 +94,7 @@ const HomeChart2 = () => {
               cursor={false}
               content={<ChartTooltipContent indicator="dot" hideLabel />}
             />
-            <Bar
-              dataKey="price"
-              fill="lightgreen"
-              radius={4}
-            />
+            <Bar dataKey="price" fill="lightgreen" radius={4} />
           </BarChart>
         </ChartContainer>
       </CardContent>

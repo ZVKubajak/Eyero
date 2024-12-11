@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import HomeChart1 from "@/app/ui/dashboard/Charts/HomeChart1/HomeChart1";
 import HomeChart2 from "@/app/ui/dashboard/Charts/HomeChart2/HomeChart2";
-import { chart1HomepageDefaults } from "@/lib/utils";
+import { chart1HomepageDefaults, chart2HomepageDefaults } from "@/lib/utils";
 import NewsCard from "@/app/ui/dashboard/NewsCard/newsCard";
 import { fetchNews } from "@/lib/newsServices";
 import { InewsItem } from "@/interfaces";
@@ -54,10 +54,10 @@ const Page = () => {
             <HomeChart1 ticker={chart1HomepageDefaults[2]} />
           </div>
           <div className="grid grid-cols-4 mt-4">
-            <HomeChart2 />
-            <HomeChart2 />
-            <HomeChart2 />
-            <HomeChart2 />
+            <HomeChart2 id={chart2HomepageDefaults[0]} />
+            <HomeChart2 id={chart2HomepageDefaults[1]} />
+            <HomeChart2 id={chart2HomepageDefaults[2]} />
+            <HomeChart2 id={chart2HomepageDefaults[3]} />
           </div>
         </div>
         {news.length > 0 ? (
@@ -67,7 +67,9 @@ const Page = () => {
               <div
                 onClick={handlePrevious}
                 className={`w-10 h-10 flex items-center justify-center rounded-full cursor-pointer transition duration-200 ease-in-out ${
-                  currentPage === 0 ? "opacity-50 cursor-not-allowed" : "hover:bg-[#444]"
+                  currentPage === 0
+                    ? "opacity-50 cursor-not-allowed"
+                    : "hover:bg-[#444]"
                 }`}
               >
                 <FontAwesomeIcon icon={faArrowLeft} className="w-5 h-5" />
