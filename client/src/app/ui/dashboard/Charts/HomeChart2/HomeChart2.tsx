@@ -3,7 +3,7 @@
 import "./homechart2.css";
 import { fetchHomepageCryptoData } from "@/lib/homeData";
 import { formatPrice } from "@/lib/utils";
-import { Bar, BarChart, CartesianGrid } from "recharts";
+import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from "recharts";
 import {
   Card,
   CardContent,
@@ -76,26 +76,36 @@ const HomeChart2 = ({ id }: { id: string }) => {
           </CardDescription>
         </div>
       </CardHeader>
-      <CardContent className="h-24 px-4 overflow-hidden">
+      <CardContent className="h-20 px-4 overflow-hidden">
         <ChartContainer config={chartConfig}>
-          <BarChart
-            width={300}
-            height={120}
+          <AreaChart
+            accessibilityLayer
             data={chartData}
             margin={{
               top: 0,
-              left: 5,
-              right: 5,
-              bottom: 10,
+              left: 0,
+              right: 0,
+              bottom: 0,
             }}
           >
             <CartesianGrid vertical={false} horizontal={false} stroke="#333" />
-            <ChartTooltip
-              cursor={false}
-              content={<ChartTooltipContent indicator="dot" hideLabel />}
+            <XAxis dataKey="date" tickLine={false} axisLine={true} />
+            <YAxis hide domain={["auto", "auto"]} />
+            {/* <ChartTooltip cursor={true} content={<ChartTooltipContent />} /> */}
+            <defs>
+              <linearGradient id="fillChart" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="5%" stopColor="lightgreen" stopOpacity={0.1} />
+              </linearGradient>
+            </defs>
+            <Area
+              dataKey="price"
+              type="linear"
+              fill="url(#fillChart)"
+              fillOpacity={0.4}
+              stroke="lightgreen"
+              strokeWidth={1.5}
             />
-            <Bar dataKey="price" fill="lightgreen" radius={4} />
-          </BarChart>
+          </AreaChart>
         </ChartContainer>
       </CardContent>
     </Card>

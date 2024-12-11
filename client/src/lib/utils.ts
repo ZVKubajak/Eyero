@@ -30,5 +30,6 @@ export const transformStockData = (data: StockApiResponse): StockData[] => {
 };
 
 export const formatPrice = (price: number) => {
-  return (Math.round(price * 100) / 100).toFixed(2);
+  const formattedPrice = (Math.round(price * 100) / 100).toFixed(2);
+  return formattedPrice.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 };
