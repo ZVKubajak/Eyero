@@ -14,8 +14,8 @@ import {
 import {
   ChartConfig,
   ChartContainer,
-  ChartTooltip,
-  ChartTooltipContent,
+  // ChartTooltip,
+  // ChartTooltipContent,
 } from "@/components/ui/chart";
 import { useState, useEffect } from "react";
 
