@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { fetchNews } from "@/lib/newsServices";
 import { InewsItem } from "@/interfaces";
 
-import Chart from "./ui/dashboard/Charts/HomeChart1/HomeChart1";
+// import Chart from "./ui/dashboard/Charts/HomeChart1/HomeChart1";
 
 export default function Home() {
   const [news, setNews] = useState<InewsItem[]>([]);
@@ -38,7 +38,7 @@ export default function Home() {
       ) : (
         <p>Loading...</p>
       )}
-      <Chart />
+      {/* <Chart /> */}
     </div>
   );
 }

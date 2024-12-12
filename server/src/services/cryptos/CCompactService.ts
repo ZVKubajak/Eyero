@@ -1,14 +1,14 @@
 import axios from "axios";
 import { coingeckoBaseURL } from "../../config/config";
 
-export const getHistoricalCryptoPrice = async (id: string) => {
+export const getCompactCryptoPrice = async (id: string) => {
   try {
     const response = await axios.get(
       `${coingeckoBaseURL}/coins/${id}/market_chart`,
       {
         params: {
           vs_currency: "usd",
-          days: "365",
+          days: "30",
           interval: "daily",
         },
       }
