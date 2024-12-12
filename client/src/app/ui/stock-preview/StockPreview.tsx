@@ -8,8 +8,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ChartConfig, ChartContainer } from "@/components/ui/chart";
 // import { useState, useEffect } from "react";
 
-// import StockGraph from "../../images/images.jpeg";
-
 const chartConfig = {
   price: {
     label: "Price",
@@ -17,7 +15,7 @@ const chartConfig = {
   },
 } satisfies ChartConfig;
 
-const StockPreview = ({ ticker }: { ticker: string }) => {
+const StockPreview = ({ ticker, company }: { ticker: string, company: string }) => {
   console.log(ticker);
 
   // const [chartData, setChartData] = useState<{ date: string; price: number }[]>(
@@ -69,11 +67,9 @@ const StockPreview = ({ ticker }: { ticker: string }) => {
     { date: "2024-12-02", price: 249.91 },
   ];
 
-  const stockName = "Dow Jones Industrial Accositoion!";
   const maxLength = 22;
-
   const truncateText = (text: string, maxLength: number) => {
-    return text.length > maxLength
+    return text.length > 22
       ? text.substring(0, maxLength) + "..."
       : text;
   };
@@ -81,8 +77,8 @@ const StockPreview = ({ ticker }: { ticker: string }) => {
   return (
     <div className="stock-preview-container">
       <div className="stock-name">
-        <h1>Dow Jones</h1>
-        <h2>{truncateText(stockName, maxLength)}</h2>
+        <h1>{ticker}</h1>
+        <h2>{truncateText(company, maxLength)}</h2>
       </div>
       <div className="stock-preview-graph">
         <Card className="border-slate-800" id="stock-preview-card">
