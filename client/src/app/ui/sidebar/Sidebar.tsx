@@ -9,12 +9,12 @@ const Sidebar = () => {
 
         <div className="sidebar-container">
             <div className="stockpreview-holder">
-            <StockPreview />
-            <StockPreview />
-            <StockPreview />
-            <StockPreview />
-            <StockPreview />
-            <StockPreview />
+            <StockPreview ticker="GNSS" />
+            <StockPreview ticker="VMD" />
+            <StockPreview ticker="AOSL" />
+            <StockPreview ticker="CLOA" />
+            <StockPreview ticker="HL" />
+            <StockPreview ticker="SOBO" />
             </div>
             <div className="upgrade-container">
                 <div className="upgrade-button">
