@@ -2,11 +2,12 @@
 
 import "./stockpreview.css";
 // import { fetchHomepageStockData } from "@/lib/homeData";
-import { StockData } from "@/interfaces";
+// import { StockData } from "@/interfaces";
 import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from "recharts";
 import { Card, CardContent } from "@/components/ui/card";
 import { ChartConfig, ChartContainer } from "@/components/ui/chart";
 // import { useState, useEffect } from "react";
+
 // import StockGraph from "../../images/images.jpeg";
 
 const chartConfig = {
@@ -84,32 +85,24 @@ const StockPreview = ({ ticker }: { ticker: string }) => {
         <h2>{truncateText(stockName, maxLength)}</h2>
       </div>
       <div className="stock-preview-graph">
-        <Card className="w-4/5 border-slate-800" id="chart1-card">
-          <CardContent className="h-32">
-            <ChartContainer config={chartConfig} className="w-full h-32">
+        <Card className="border-slate-800" id="stock-preview-card">
+          <CardContent className="h-8">
+            <ChartContainer config={chartConfig} className="w-full h-8">
               <AreaChart
                 accessibilityLayer
                 data={testData}
                 margin={{
-                  top: 10,
-                  left: 15,
-                  right: 15,
-                  bottom: 10,
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
                 }}
               >
                 <CartesianGrid vertical={false} stroke="333" />
                 <XAxis
+                  hide
                   dataKey="date"
-                  tickLine={true}
-                  axisLine={false}
-                  tickMargin={8}
-                  tickFormatter={(date) =>
-                    new Date(date + "T24:00:00Z").toLocaleString("en-US", {
-                      month: "numeric",
-                      day: "numeric",
-                    })
-                  }
-                  interval={6}
+                  axisLine={true}
                 />
                 <YAxis hide domain={["auto", "auto"]} />
                 <defs>
@@ -130,7 +123,7 @@ const StockPreview = ({ ticker }: { ticker: string }) => {
                   dataKey="price"
                   type="linear"
                   fill="url(#fillChart)"
-                  fillOpacity={0.4}
+                  fillOpacity={0.2} // Change to 0 to remove gradient.
                   stroke="lightgreen"
                   strokeWidth={1.5}
                 />
