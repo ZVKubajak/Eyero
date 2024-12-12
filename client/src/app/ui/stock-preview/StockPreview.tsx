@@ -15,7 +15,13 @@ const chartConfig = {
   },
 } satisfies ChartConfig;
 
-const StockPreview = ({ ticker, company }: { ticker: string, company: string }) => {
+const StockPreview = ({
+  ticker,
+  company,
+}: {
+  ticker: string;
+  company: string;
+}) => {
   console.log(ticker);
 
   // const [chartData, setChartData] = useState<{ date: string; price: number }[]>(
@@ -69,9 +75,7 @@ const StockPreview = ({ ticker, company }: { ticker: string, company: string }) 
 
   const maxLength = 22;
   const truncateText = (text: string, maxLength: number) => {
-    return text.length > 22
-      ? text.substring(0, maxLength) + "..."
-      : text;
+    return text.length > 22 ? text.substring(0, maxLength) + "..." : text;
   };
 
   return (
@@ -95,11 +99,7 @@ const StockPreview = ({ ticker, company }: { ticker: string, company: string }) 
                 }}
               >
                 <CartesianGrid vertical={false} stroke="333" />
-                <XAxis
-                  hide
-                  dataKey="date"
-                  axisLine={true}
-                />
+                <XAxis hide dataKey="date" axisLine={true} />
                 <YAxis hide domain={["auto", "auto"]} />
                 <defs>
                   <linearGradient id="fillChart" x1="0" y1="0" x2="0" y2="1">
@@ -129,10 +129,14 @@ const StockPreview = ({ ticker, company }: { ticker: string, company: string }) 
         </Card>
       </div>
       <div className="stock-preview-prices">
-        <h1>44,401.93</h1>
-        <div className="change-holder">
+        <h1>
+          {testData.length > 0
+            ? `$${testData[testData.length - 1].price}`
+            : "Loading..."}
+        </h1>
+        {/* <div className="change-holder">
           <h2>-240.59</h2>
-        </div>
+        </div> */}
       </div>
     </div>
   );
