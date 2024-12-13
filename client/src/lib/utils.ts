@@ -6,12 +6,20 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export const chart1HomepageDefaults = ["AAPL", "NVDA", "XOM"];
+export const chart1HomepageDefaults = ["SONY", "AMD", "UPS"];
 export const chart2HomepageDefaults = [
   "bitcoin",
   "ethereum",
   "ripple",
   "dogecoin",
+];
+export const sideChartHomepageDefaults = [
+  { ticker: "AAPL", company: "Apple Inc." },
+  { ticker: "NVDA", company: "NVIDIA Corporation" },
+  { ticker: "AMZN", company: "Amazon.com Inc." },
+  { ticker: "TSLA", company: "Tesla, Inc." },
+  { ticker: "XOM", company: "Exxon Mobil Corporation" },
+  { ticker: "IBM", company: "International Business Machines Corporation" },
 ];
 
 export const transformStockData = (data: StockApiResponse): StockData[] => {
